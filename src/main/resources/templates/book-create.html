@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>Create book</title>
+</head>
+<body>
+    <div class="row">
+        <h3>Create book</h3>
+        <form class="col s12" action="#" th:action="@{/book-create}" th:object="${book}" method="post">
+            <div class="row">
+                <div class="input-field col s4">
+                    <input type="text" th:field="*{title}" id="title" class="validate">
+                    <label for="title">Title</label>
+                    <div th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Title error</div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s4">
+                    <input type="text" th:field="*{author}" id="author" class="validate">
+                    <label for="author">Author</label>
+                    <div th:if="${#fields.hasErrors('author')}" th:errors="*{author}">Author error</div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s2">
+                    <input type="text" th:field="*{price}" id="price" class="validate">
+                    <label for="price">Price</label>
+                    <div th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Price error</div>
+                </div>
+            </div>
+
+            <input type="submit" value="Create Book" class="waves-effect waves-light btn">
+        </form>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>

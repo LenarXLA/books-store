@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>Update book</title>
+</head>
+<body>
+    <div class="row">
+        <h3>Update book</h3>
+        <form class="col s12" action="#" th:action="@{/book-update}" th:object="${book}" method="post">
+            <div class="row">
+                <div class="input-field col s4">
+                    <label for="id">ID</label>
+                    <input readonly type="number" th:field="*{id}" id="id" placeholder="ID">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s4">
+                    <label for="title">Title</label>
+                    <input type="text" th:field="*{title}" id="title">
+                    <div th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Title error</div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s4">
+                    <label for="author">Author</label>
+                    <input type="text" th:field="*{author}" id="author">
+                    <div th:if="${#fields.hasErrors('author')}" th:errors="*{author}">Author error</div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s4">
+                    <label for="price">Price</label>
+                    <input type="text" th:field="*{price}" id="price">
+                    <div th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Price error</div>
+                </div>
+            </div>
+
+            <input type="submit" value="Update Book" class="waves-effect waves-light btn">
+        </form>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
